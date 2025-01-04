@@ -1,0 +1,32 @@
+
+		~ Calidad del Código ~
+	* Formateo
+		- Herramienta del IDE
+		- Líneas en blanco
+		- Sin comentarios
+		- Nombres de clases, métodos, atributos, parámetros y variables
+	* Sencillez del código
+		- Estructuras anidadas: <3
+		- Complejidad ciclomática: <9-12 ~ <4 bifurcaciones
+	* Métricas
+		- Paquete: <20 clases
+		- Clases: <500-200 líneas, <20 métodos
+		- Métodos: <3-4 parámetros, <15 líneas
+	* Eliminar redundancias (copy and paste)
+	* Eliminar código muerto
+	* Tratamiento de errores
+
+		~ Anti-patrones (Anti-patterns) ~
+	* Cut & paste
+	* Magic numbers
+	* Blob
+	* Lava flow
+	* Spaghetti code
+	* Blind faith
+	* Poltergeist
+	* Golden Hammer
+	* Programming by permutation...
+	* Sequential coupling
+	* Checking type instead of interface
+	* Busy spin
+	* ...

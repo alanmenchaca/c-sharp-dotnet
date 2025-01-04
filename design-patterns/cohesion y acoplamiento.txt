@@ -1,0 +1,21 @@
+
+	~ Alta Cohesión - Única Responsabilidad ~
+	Una alta cohesión significa que el componente solo hace una cosa bien y
+	tiene un propósito y un alcance claros. La baja cohesión significa que
+	el componente hace muchas cosas mal y tiene un papel y un alcance vagos
+	o superpuestos.	
+	Si no hay alta cohesión, tratar de dividir la clase (paquete, despliegue)
+		* Una sola responsabilidad
+		* Un motivo de cambio
+		* Que los atributos dependan de sus métodos en una clase
+		* Que los métodos dependan de sus atributos en una clase
+	Single Responsibility Principle -> Alta Cohesion
+
+	~ Acoplamiento bajo ~
+	El acoplamiento es la forma y nivel de interdependencia entre módulos de
+	software; una medida de qué tan cercanamente están dos rutinas o módulos
+	de software; así como el grado de fuerza de la relación entre módulos.
+	Un acoplamiento bajo normalmente se correlaciona con una alta cohesión,
+	y viceversa.
+
+	Escenario esperado: Bajo Acoplamiento y Alta Cohesión

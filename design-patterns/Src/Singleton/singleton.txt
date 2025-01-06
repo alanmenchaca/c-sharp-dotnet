@@ -1,0 +1,15 @@
+
+		~ Patron Creacional - Singleton ~
+	* Motivación
+	  En una aplicación se necesita que exista un solo objeto de una clase, Gestor de
+	  Ficheros, Cola de Impresión, Gestor de Registros, Gestor de BD, y demás, sea
+	  accesible desde el resto de clases de la aplicación.
+	
+	* Propósito
+	  Se garantiza que una clase sólo tenga una instancia y se proporciona un acceso
+	  global a ella
+
+	* Roles
+		+ Atributo privado estático de la Clase
+		+ Constructor privado
+		+ Método get estático y público, para devolver el atributo

@@ -1,0 +1,30 @@
+
+		~ Patron Creacional - Composite ~
+	* Motivación
+	  En las aplicaciones gráficas, se permite realizar dibujos por la agrupación
+	  de elementos simples y otros elementos agrupados.
+
+	* Árbol de Números
+		- Se requiere construir una estructura de árbol con valores numéricos.
+		  Existen nodos con valores numéricos (hojas) y nodos que contienen
+		  otros nodos (compuestos)
+		- Si se intenta añadir a un nodo hoja, se debe lanzar la excepción:
+		  UnsupportedOperationException. Si se intenta borrar nodos a una hoja
+		  no se hace nada y no genera excepción.
+		- Si se intenta añadir o borrar con parámetro null, no hace nada y no
+		  genera excepción
+		- Se debe crear las operaciones numberOfNodes, sum y higher, se opera
+		  sobre si mismo y todos los nodos dependen de él
+
+	* ¿Tiene alta cohesión?¿Cumple los principios del DOO?
+		- SOLID (Single responsibility), Anti-Pattern (Spaghetti code)
+	* ¿Y si se quiere añadir un nuevo tipo de hoja?
+
+	* Propósito
+	  Permite estructuras en árbol tratando por igual a las hojas que a los
+	  elementos compuestos
+
+	* Roles
+		+ Component: TreeNumbers
+		+ Composite: TreeNumbersComposite
+		+ Leaf: TreeNumbersLeaf

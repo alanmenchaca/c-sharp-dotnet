@@ -2,8 +2,12 @@
 
 using design_patterns.Singleton.Factory.Solution;
 
-public class TestReferencesFactory
+public class ReferencesFactoryTest
 {
+    public ReferencesFactoryTest()
+    {
+    }
+
     [Fact]
     public void TestSingletonNotNull()
     {
@@ -16,14 +20,16 @@ public class TestReferencesFactory
         ReferencesFactory rf = ReferencesFactory.GetFactory();
         Assert.Equal(0, rf.GetReference("key1"));
         Assert.Equal(1, rf.GetReference("key2"));
+        rf.ClearResources();
     }
 
     [Fact]
     public void TestRemoveReference()
     {
         ReferencesFactory rf = ReferencesFactory.GetFactory();
-        Assert.Equal(2, rf.GetReference("key3"));
+        Assert.Equal(0, rf.GetReference("key3"));
         rf.RemoveReference("key3");
-        Assert.Equal(3, rf.GetReference("key3"));
+        Assert.Equal(1, rf.GetReference("key3"));
+        rf.ClearResources();
     }
 }

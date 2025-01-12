@@ -2,7 +2,7 @@
 
 using design_patterns.Singleton;
 
-public class TestSingleton
+public class SingletonTest
 {
     [Fact]
     private void TestSingletonNotNull()

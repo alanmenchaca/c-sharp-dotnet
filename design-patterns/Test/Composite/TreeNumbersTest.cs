@@ -2,13 +2,13 @@
 
 namespace design_patterns.Test.Composite;
 
-public class TestTreeNumbers
+public class TreeNumbersTest
 {
     private readonly ITreeNumbers _root;
     private readonly ITreeNumbers _sub11;
     private readonly ITreeNumbers _leaf;
 
-    public TestTreeNumbers()
+    public TreeNumbersTest()
     {
         _root = new TreeNumbersComposite("Root");
         _sub11 = new TreeNumbersComposite("Sub11");

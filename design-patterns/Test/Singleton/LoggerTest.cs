@@ -2,7 +2,7 @@
 
 namespace design_patterns.Test.Singleton;
 
-public class TestLogger
+public class LoggerTest
 {
     [Fact]
     public void TestSingletonNotNull()

@@ -2,11 +2,11 @@
 
 namespace design_patterns.Test.Composite;
 
-public class TestExpression
+public class ExpressionTest
 {
     private IExpression exp1, exp2, exp3, exp4, exp5, exp6;
 
-    public TestExpression()
+    public ExpressionTest()
     {
         exp1 = new Number(4);
         exp2 = new Summation(exp1, new Number(2));

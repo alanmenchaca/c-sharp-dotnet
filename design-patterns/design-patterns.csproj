@@ -28,8 +28,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Src\Builder\AdvancedSolution\" />
-  </ItemGroup>
-
 </Project>

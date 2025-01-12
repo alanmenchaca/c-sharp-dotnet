@@ -43,4 +43,10 @@ public class ReferencesFactory
     {
         _references.Remove(key);
     }
+
+    public void ClearResources()
+    {
+        _references.Clear();
+        _reference = 0;
+    }
 }

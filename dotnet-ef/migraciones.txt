@@ -1,0 +1,14 @@
+﻿
+	~ Migraciones ~
+	Es una funcionalidad de Entity Framework que nos permite guardar de 
+	manera incremental los cambios realizados en la base de datos.
+	Nos permite construir un versionamiento de la base de datos.
+
+    ~ Comandos Basicos ~
+        * dotnet ef migrations add InitialCreate : Crea una migración inicial.
+        * dotnet ef migrations add MyMigration : Crea una migración con nombre.
+        * dotnet ef database update : Actualiza la base de datos con las migraciones.
+    
+    dotnet tool install --global dotnet-ef
+    dotnet add package Microsoft.EntityFrameworkCore.Design --version 9.0.0
+    

@@ -3,5 +3,5 @@
 	* Motivación
 		Este patrón permite tener una política general para la creación de objetos,
 		centralizándolo en una clase constructora
-			- En lugar de que utilizemos los constructores (aveces eso es más 
+			- En lugar de que utilicemos los constructores (aveces eso es más 
 			  complejo), una clase especial se dedica a construir el objeto

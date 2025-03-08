@@ -1,0 +1,11 @@
+
+		~ Patron Creacional - Abstract Factory (Fábrica Abstracta) ~
+	* También conocido
+		- Kit
+	* Motivación
+		- Se permiten múltiples interfaces de usuario
+	* Propósito
+		- Proporciona un interface para crear familias de objetos relacionados
+
+	Este patron se basa en el patron DAO que es el acceso a la base de datos. Casi
+	todos los frameworks implementan este patron para acceder a la base de datos.

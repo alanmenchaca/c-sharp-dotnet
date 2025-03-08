@@ -1,0 +1,30 @@
+
+		~ Inversion of Control (IoC) ~
+	The Inversion-of-Control (IoC) pattern, is about providing any kind of callback, which
+	"implements" and/or controls reaction, instead of acting ourselves directly (in other
+	words, inversion and/or redirecting control to the external handler/controller).
+    The Dependency-Injection (DI) pattern is a more specific version of IoC pattern, and
+    is all about removing dependencies from our code.
+    	- Every DI implementation can be considered IoC, but one should not call it IoC,
+    	  because implementing Dependency-Injection is harder than callback (don't lower
+    	  your product's worth by using the general term "IoC" instead)
+    	- Also known as the Hollywood Principle - "Don't call us, we'll call you".
+
+    One important characteristic of a framework is that the methods defined by the user
+    to tailor the framework will often be called from within the framework itself.
+    rather than from the user's application code.
+    The framework often plays the role of the main program in the coordinating and
+    sequencing application activity. This Inversion of Control (IoC) gives frameworks
+    the power to serve as extensible skeletons. The methods supplied by the user tailor
+    the generic algorithms defined in the framework for a particular application.
+    	-- Ralph Johnson and Brian Foote
+
+    Inversion of Control is a key part of what makes a framework different to a library.
+    A library is essentially a set of functions that we can call, these days usually
+    organized into classes. Each call does some work and returns control to the client.
+    
+    A framework embodies some abstract design, with more behavior built in. In order to
+    use it we need to insert our behavior into various places in the framework either by
+    subclassing or by plugging in our own classes. The framework's code then calls our
+    code at these points.
+

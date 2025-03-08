@@ -44,7 +44,7 @@ public class Program
         // StringEquals.CompareStrings();
         // StringIteration.IterateString();
         // StringNullOrEmpty.CheckIfStringIsEmpty();
-        PkgHumanizer.UsingHumanizer();
+        // PkgHumanizer.UsingHumanizer();
 
         // ARRAY OPERATIONS:
         // ArraysExample.ShowArrays();
@@ -79,5 +79,7 @@ public class Program
         // TriangleArea.CalculateTriangleAreaExercise();
         // SumOfIntArr.SumArrExercise();
         // CustomTryParse.ParseIntExercise();
+        
+        Console.WriteLine("Hello World!");
     }
 }

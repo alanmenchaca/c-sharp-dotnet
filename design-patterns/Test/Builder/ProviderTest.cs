@@ -1,13 +1,14 @@
 ﻿using design_patterns.Builder.Article.Solution;
+using NUnit.Framework;
 
 namespace design_patterns.Test.Builder;
 
 public class ProviderTest
 {
-    [Fact]
+    [Test]
     public void FullProviderTest()
     {
-        Provider provider = Provider.Make()
+        var provider = Provider.Make()
             .Id("1")
             .Company("Company")
             .Description("Provider description")
@@ -17,32 +18,32 @@ public class ProviderTest
             .Email("JohnDoe@gmail.com")
             .Note("Note")
             .Build();
-        
-        Assert.Equal("1", provider.Id);
-        Assert.Equal("Company", provider.Company);
-        Assert.Equal("Provider description", provider.Description);
-        Assert.Equal("123456789", provider.Nif);
-        Assert.Equal("Address", provider.Address);
-        Assert.Equal("987654321", provider.Phone);
-        Assert.Equal("JohnDoe@gmail.com", provider.Email);
-        Assert.Equal("Note", provider.Note);
+
+        Assert.That(provider.Id, Is.EqualTo("1"));
+        Assert.That(provider.Company, Is.EqualTo("Company"));
+        Assert.That(provider.Description, Is.EqualTo("Provider description"));
+        Assert.That(provider.Nif, Is.EqualTo("123456789"));
+        Assert.That(provider.Address, Is.EqualTo("Address"));
+        Assert.That(provider.Phone, Is.EqualTo("987654321"));
+        Assert.That(provider.Email, Is.EqualTo("JohnDoe@gmail.com"));
+        Assert.That(provider.Note, Is.EqualTo("Note"));
     }
-    
-    [Fact]
+
+    [Test]
     public void PartialProviderTest()
     {
-        Provider provider = Provider.Make()
+        var provider = Provider.Make()
             .Id("1")
             .Company("Company")
             .Build();
-        
-        Assert.Equal("1", provider.Id);
-        Assert.Equal("Company", provider.Company);
-        Assert.Null(provider.Description);
-        Assert.Null(provider.Nif);
-        Assert.Null(provider.Address);
-        Assert.Null(provider.Phone);
-        Assert.Null(provider.Email);
-        Assert.Null(provider.Note);
+
+        Assert.That(provider.Id, Is.EqualTo("1"));
+        Assert.That(provider.Company, Is.EqualTo("Company"));
+        Assert.That(provider.Description, Is.Null);
+        Assert.That(provider.Nif, Is.Null);
+        Assert.That(provider.Address, Is.Null);
+        Assert.That(provider.Phone, Is.Null);
+        Assert.That(provider.Email, Is.Null);
+        Assert.That(provider.Note, Is.Null);
     }
 }

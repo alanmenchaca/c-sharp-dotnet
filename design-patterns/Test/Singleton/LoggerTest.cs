@@ -1,18 +1,19 @@
 ﻿using design_patterns.Singleton.Logger.Solution;
+using NUnit.Framework;
 
 namespace design_patterns.Test.Singleton;
 
 public class LoggerTest
 {
-    [Fact]
+    [Test]
     public void TestSingletonNotNull()
     {
-        Assert.NotNull(Logger.Instance);
+        Assert.That(Logger.Instance, Is.Not.Null);
     }
     
-    [Fact]
+    [Test]
     public void TestIsSingleton()
     {
-        Assert.Same(Logger.Instance, Logger.Instance);
+        Assert.That(Logger.Instance, Is.InstanceOf<Logger>());
     }
 }

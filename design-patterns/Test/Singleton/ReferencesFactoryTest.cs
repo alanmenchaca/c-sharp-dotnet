@@ -1,35 +1,43 @@
-﻿namespace design_patterns.Test.Singleton;
+﻿using design_patterns.Singleton.Factory.Solution;
+using NUnit.Framework;
 
-using design_patterns.Singleton.Factory.Solution;
+namespace design_patterns.Test.Singleton;
 
+[TestFixture]
 public class ReferencesFactoryTest
 {
-    public ReferencesFactoryTest()
+    private ReferencesFactory _rf;
+
+    [SetUp]
+    public void Setup()
     {
+        _rf = ReferencesFactory.GetFactory();
     }
 
-    [Fact]
+    [Test]
     public void TestSingletonNotNull()
     {
-        Assert.NotNull(ReferencesFactory.GetFactory());
+        Assert.That(ReferencesFactory.GetFactory(), Is.Not.Null);
     }
 
-    [Fact]
+    [Test]
     public void TestGetReference()
     {
-        ReferencesFactory rf = ReferencesFactory.GetFactory();
-        Assert.Equal(0, rf.GetReference("key1"));
-        Assert.Equal(1, rf.GetReference("key2"));
-        rf.ClearResources();
+        Assert.That(_rf.GetReference("key1"), Is.EqualTo(0));
+        Assert.That(_rf.GetReference("key2"), Is.EqualTo(1));
     }
 
-    [Fact]
+    [Test]
     public void TestRemoveReference()
     {
-        ReferencesFactory rf = ReferencesFactory.GetFactory();
-        Assert.Equal(0, rf.GetReference("key3"));
-        rf.RemoveReference("key3");
-        Assert.Equal(1, rf.GetReference("key3"));
-        rf.ClearResources();
+        Assert.That(_rf.GetReference("key3"), Is.EqualTo(0));
+        _rf.RemoveReference("key3");
+        Assert.That(_rf.GetReference("key3"), Is.EqualTo(1));
+    }
+
+    [TearDown]
+    public void TearDown()
+    {
+        _rf.ClearResources();
     }
 }

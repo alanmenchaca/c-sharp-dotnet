@@ -1,13 +1,14 @@
 ﻿using design_patterns.Builder.User.AdvancedSolution;
+using NUnit.Framework;
 
 namespace design_patterns.Test.Builder;
 
 public class UserAdvTest
 {
-    [Fact]
+    [Test]
     public void TestUserFull()
     {
-        User user = User.Make()
+        var user = User.Make()
             .Id("1")
             .Nick("Paco")
             .Name("Jose")
@@ -19,32 +20,32 @@ public class UserAdvTest
             .Tag("socio")
             .Tag("Consejo")
             .Build();
-
-        Assert.Equal("1", user.Id);
-        Assert.Equal("Paco", user.Nick);
-        Assert.Equal("Jose", user.Name);
-        Assert.Equal("De Miguel", user.FamilyName);
-        Assert.Equal(18, user.Age);
-        Assert.Equal(666666666, user.Phone);
-        Assert.Equal("Profesor", user.Profession);
-        Assert.Equal(3, user.Tags.Count);
+        
+        Assert.That(user.Id, Is.EqualTo("1"));
+        Assert.That(user.Nick, Is.EqualTo("Paco"));
+        Assert.That(user.Name, Is.EqualTo("Jose"));
+        Assert.That(user.FamilyName, Is.EqualTo("De Miguel"));
+        Assert.That(user.Age, Is.EqualTo(18));
+        Assert.That(user.Phone, Is.EqualTo(666666666));
+        Assert.That(user.Profession, Is.EqualTo("Profesor"));
+        Assert.That(user.Tags.Count, Is.EqualTo(3));
     }
-    
-    [Fact]
+
+    [Test]
     public void TestUserPartial()
     {
-        User user = User.Make()
+        var user = User.Make()
             .Id("1")
             .Nick("Paco")
             .Name("Jose")
             .Tag("Director")
             .Age(18)
             .Build();
-        
-        Assert.Equal("1", user.Id);
-        Assert.Equal("Paco", user.Nick);
-        Assert.Equal("Jose", user.Name);
-        Assert.Equal(18, user.Age);
-        Assert.Single(user.Tags);
+
+        Assert.That(user.Id, Is.EqualTo("1"));
+        Assert.That(user.Nick, Is.EqualTo("Paco"));
+        Assert.That(user.Name, Is.EqualTo("Jose"));
+        Assert.That(user.Age, Is.EqualTo(18));
+        Assert.That(user.Tags.Count, Is.EqualTo(1));
     }
 }

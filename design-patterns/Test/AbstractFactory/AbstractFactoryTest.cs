@@ -1,4 +1,5 @@
 ﻿using design_patterns.AbstractFactory.Concrete2;
+using NUnit.Framework;
 
 namespace design_patterns.Test.AbstractFactory;
 
@@ -7,43 +8,35 @@ using design_patterns.AbstractFactory.Concrete1;
 
 public class AbstractFactoryTest
 {
-    [Fact]
+    [Test]
     public void ProductAOfConcrete1FactoryTest()
     {
         AbstractFactory.SetAbstractFactory(new Concrete1Factory());
-        Assert.Equal("ProductA1", AbstractFactory
-            .GetAbstractFactory()?
-            .CreateProductA()
-            .View());
+        var productA = AbstractFactory.GetAbstractFactory()?.CreateProductA();
+        Assert.That(productA?.View(), Is.EqualTo("ProductA1"));
     }
 
-    [Fact]
+    [Test]
     public void ProductBOfConcrete1FactoryTest()
     {
         AbstractFactory.SetAbstractFactory(new Concrete1Factory());
-        Assert.Equal("ProductB1", AbstractFactory
-            .GetAbstractFactory()?
-            .CreateProductB()
-            .View());
+        var productB = AbstractFactory.GetAbstractFactory()?.CreateProductB();
+        Assert.That(productB?.View(), Is.EqualTo("ProductB1"));
     }
 
-    [Fact]
+    [Test]
     public void ProductAOfConcrete2FactoryTest()
     {
         AbstractFactory.SetAbstractFactory(new Concrete2Factory());
-        Assert.Equal("ProductA2", AbstractFactory
-            .GetAbstractFactory()?
-            .CreateProductA()
-            .View());
+        var productA = AbstractFactory.GetAbstractFactory()?.CreateProductA();
+        Assert.That(productA?.View(), Is.EqualTo("ProductA2"));
     }
 
-    [Fact]
+    [Test]
     public void ProductBOfConcrete2FactoryTest()
     {
         AbstractFactory.SetAbstractFactory(new Concrete2Factory());
-        Assert.Equal("ProductB2", AbstractFactory
-            .GetAbstractFactory()?
-            .CreateProductB()
-            .View());
+        var productB = AbstractFactory.GetAbstractFactory()?.CreateProductB();
+        Assert.That(productB?.View(), Is.EqualTo("ProductB2"));
     }
 }

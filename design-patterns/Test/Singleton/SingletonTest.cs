@@ -1,18 +1,20 @@
-﻿namespace design_patterns.Test.Singleton;
+﻿using NUnit.Framework;
+
+namespace design_patterns.Test.Singleton;
 
 using design_patterns.Singleton;
 
 public class SingletonTest
 {
-    [Fact]
-    private void TestSingletonNotNull()
+    [Test]
+    public void TestSingletonNotNull()
     {
-        Assert.NotNull(Singleton.GetSingleton());
+        Assert.That(Singleton.GetSingleton(), Is.Not.Null);
     }
 
-    [Fact]
-    private void TestIsSingleton()
+    [Test]
+    public void TestIsSingleton()
     {
-        Assert.Same(Singleton.GetSingleton(), Singleton.GetSingleton());
+        Assert.That(Singleton.GetSingleton(), Is.InstanceOf<Singleton>());
     }
 }

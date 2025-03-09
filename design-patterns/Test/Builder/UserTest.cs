@@ -1,13 +1,14 @@
 ﻿using design_patterns.Builder.User.Solution;
+using NUnit.Framework;
 
 namespace design_patterns.Test.Builder;
 
 public class UserTest
 {
-    [Fact]
+    [Test]
     public void TestUserFull()
     {
-        User user = User.Make("1", "Paco", "Jose")
+        var user = User.Make("1", "Paco", "Jose")
             .FamilyName("De Miguel")
             .Phone(666666666)
             .Adult()
@@ -15,28 +16,28 @@ public class UserTest
             .Tag("Director").Tag("Socio").Tag("Consejo")
             .Build();
 
-        Assert.Equal("1", user.Id);
-        Assert.Equal("Paco", user.Nick);
-        Assert.Equal("Jose", user.Name);
-        Assert.Equal("De Miguel", user.FamilyName);
-        Assert.Equal(18, user.Age);
-        Assert.Equal(666666666, user.Phone);
-        Assert.Equal("Profesor", user.Profession);
-        Assert.Equal(3, user.Tags.Count);
+        Assert.That(user.Id, Is.EqualTo("1"));
+        Assert.That(user.Nick, Is.EqualTo("Paco"));
+        Assert.That(user.Name, Is.EqualTo("Jose"));
+        Assert.That(user.FamilyName, Is.EqualTo("De Miguel"));
+        Assert.That(user.Age, Is.EqualTo(18));
+        Assert.That(user.Phone, Is.EqualTo(666666666));
+        Assert.That(user.Profession, Is.EqualTo("Profesor"));
+        Assert.That(user.Tags.Count, Is.EqualTo(3));
     }
 
-    [Fact]
+    [Test]
     public void TestUserPartial()
     {
-        User user = User.Make("1", "Paco", "Jose")
+        var user = User.Make("1", "Paco", "Jose")
             .Phone(666666666)
             .FamilyName("De Miguel")
             .Build();
-
-        Assert.Equal("1", user.Id);
-        Assert.Equal("Paco", user.Nick);
-        Assert.Equal("Jose", user.Name);
-        Assert.Equal("De Miguel", user.FamilyName);
-        Assert.Equal(666666666, user.Phone);
+        
+        Assert.That(user.Id, Is.EqualTo("1"));
+        Assert.That(user.Nick, Is.EqualTo("Paco"));
+        Assert.That(user.Name, Is.EqualTo("Jose"));
+        Assert.That(user.FamilyName, Is.EqualTo("De Miguel"));
+        Assert.That(user.Phone, Is.EqualTo(666666666));
     }
 }

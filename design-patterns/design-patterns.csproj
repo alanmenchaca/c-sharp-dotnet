@@ -6,26 +6,23 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>design_patterns</RootNamespace>
     <TargetFramework>net8.0</TargetFramework>
-    <!--
-    To enable the Microsoft Testing Platform 'dotnet test' experience, add property:
-      <TestingPlatformDotnetTestSupport>true</TestingPlatformDotnetTestSupport>
-
-    To enable the Microsoft Testing Platform native command line experience, add property:
-      <UseMicrosoftTestingPlatformRunner>true</UseMicrosoftTestingPlatformRunner>
-
-    For more information on Microsoft Testing Platform support in xUnit.net, please visit:
-      https://xunit.net/docs/getting-started/v3/microsoft-testing-platform
-    -->
+    <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Using Include="Xunit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageReference Include="NUnit" Version="4.3.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
-    <PackageReference Include="xunit.v3" Version="1.0.0" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="3.0.0" />
+    <!-- Source folders -->
+    <Folder Include="Src\Behavioral\" />
+    <Folder Include="Src\Creational\" />
+    <Folder Include="Src\Structural\" />
+    <!-- Test folders -->
+    <Folder Include="Test\Creational\" />
+    <Folder Include="Test\Behavioral\" />
+    <Folder Include="Test\Structural\" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace design_patterns.Test.Creational.Singleton;
 
-public class SingletonTest
+public class SingletonPatternTest
 {
     [Test]
     public void TestSingletonNotNull()

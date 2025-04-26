@@ -16,8 +16,8 @@
 
   <ItemGroup>
     <!-- Source folders -->
-    <Folder Include="Src\Behavioral\" />
     <Folder Include="Src\Creational\" />
+    <Folder Include="Src\Behavioral\" />
     <Folder Include="Src\Structural\" />
     <!-- Test folders -->
     <Folder Include="Test\Creational\" />

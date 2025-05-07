@@ -2,12 +2,6 @@
 
 public class ReferencesFactory
 {
-    /*
-     * Singleton must have:
-     * private attribute of the same class
-     * private Constructor
-     * public static method to get the instance
-     */
     private static ReferencesFactory? _rf;
     private readonly Dictionary<string, int> _references;
     private int _reference;

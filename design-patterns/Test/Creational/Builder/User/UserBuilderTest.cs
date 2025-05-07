@@ -6,40 +6,81 @@ namespace design_patterns.Test.Creational.Builder.User;
 public class UserBuilderTest
 {
     [Test]
-    public void TestUserFull()
+    public void BuildEmptyUser_ShouldReturnUserWithDefaultValues()
     {
-        var user = UserBuilder
-            .Make("1", "Paco", "Jose")
-            .FamilyName("De Miguel")
-            .Phone(666666666)
-            .Adult()
-            .Profession("Profesor")
-            .Tag("Director").Tag("Socio").Tag("Consejo")
-            .Build();
+        // Arrange
+        var userBuilder = UserBuilder.Make("1", "John", "Doe");
 
-        Assert.That(user.Id, Is.EqualTo("1"));
-        Assert.That(user.Nick, Is.EqualTo("Paco"));
-        Assert.That(user.Name, Is.EqualTo("Jose"));
-        Assert.That(user.FamilyName, Is.EqualTo("De Miguel"));
-        Assert.That(user.Age, Is.EqualTo(18));
-        Assert.That(user.Phone, Is.EqualTo(666666666));
-        Assert.That(user.Profession, Is.EqualTo("Profesor"));
-        Assert.That(user.Tags?.Count, Is.EqualTo(3));
+        // Act
+        var user = userBuilder.Build();
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(user, Is.Not.Null);
+            Assert.That(user.Id, Is.EqualTo("1"));
+            Assert.That(user.Nick, Is.EqualTo("John"));
+            Assert.That(user.Name, Is.EqualTo("Doe"));
+            Assert.That(user.FamilyName, Is.Null);
+            Assert.That(user.Age, Is.Null);
+            Assert.That(user.Phone, Is.Null);
+            Assert.That(user.Profession, Is.Null);
+            Assert.That(user.Tags?.Count, Is.Null);
+        });
     }
 
     [Test]
-    public void TestUserPartial()
+    public void BuildUserWithPartialFields_ShouldReturnUserWithSetFields()
     {
-        var user = UserBuilder
-            .Make("1", "Paco", "Jose")
-            .Phone(666666666)
-            .FamilyName("De Miguel")
-            .Build();
+        // Arrange
+        var userBuilder = UserBuilder
+            .Make("1", "John", "Doe")
+            .Phone(0123456789)
+            .FamilyName("Doe");
 
-        Assert.That(user.Id, Is.EqualTo("1"));
-        Assert.That(user.Nick, Is.EqualTo("Paco"));
-        Assert.That(user.Name, Is.EqualTo("Jose"));
-        Assert.That(user.FamilyName, Is.EqualTo("De Miguel"));
-        Assert.That(user.Phone, Is.EqualTo(666666666));
+        // Act
+        var user = userBuilder.Build();
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(user.Id, Is.EqualTo("1"));
+            Assert.That(user.Nick, Is.EqualTo("John"));
+            Assert.That(user.Name, Is.EqualTo("Doe"));
+            Assert.That(user.FamilyName, Is.EqualTo("Doe"));
+            Assert.That(user.Age, Is.Null);
+            Assert.That(user.Phone, Is.EqualTo(0123456789));
+            Assert.That(user.Profession, Is.Null);
+            Assert.That(user.Tags?.Count, Is.Null);
+        });
+    }
+
+    [Test]
+    public void BuildUserWithAllFields_ShouldReturnFullUser()
+    {
+        // Arrange
+        var userBuilder = UserBuilder
+            .Make("1", "John", "Doe")
+            .FamilyName("Doe")
+            .Phone(0123456789)
+            .Adult()
+            .Profession("Professor")
+            .Tag("Director").Tag("Socio").Tag("Consejo");
+
+        // Act
+        var user = userBuilder.Build();
+
+        // Assert
+        Assert.Multiple(() =>
+        {
+            Assert.That(user.Id, Is.EqualTo("1"));
+            Assert.That(user.Nick, Is.EqualTo("John"));
+            Assert.That(user.Name, Is.EqualTo("Doe"));
+            Assert.That(user.FamilyName, Is.EqualTo("Doe"));
+            Assert.That(user.Phone, Is.EqualTo(0123456789));
+            Assert.That(user.Age, Is.EqualTo(18));
+            Assert.That(user.Profession, Is.EqualTo("Professor"));
+            Assert.That(user.Tags?.Count, Is.EqualTo(3));
+        });
     }
 }
